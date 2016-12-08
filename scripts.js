@@ -8,6 +8,7 @@ var player1Squares = [];
 var player2Squares = [];
 var someoneWon = false;
 var computerPlayer = false;
+var startPressed = false;
 // setup up winners array
 var winningCombos =[
 ['A1', 'B1', 'C1'],
@@ -22,11 +23,16 @@ var winningCombos =[
 
 console.log(winningCombos);
 
+function start(){
+	document.getElementById('start').style.display='none';
+}
+
 function onePlayerGame(){
 	computerPlayer = true;
 }
 
 function markSquare(currentSquare){
+	if(startPressed = true){
 		if((currentSquare.innerHTML == "X") || (currentSquare.innerHTML =="0")){
 			return "taken";
 		}else if(someoneWon){
@@ -48,6 +54,7 @@ function markSquare(currentSquare){
 				checkWin(2, player2Squares);
 			}
 		}
+	}
 }
 
 function computerMove(){
@@ -97,15 +104,25 @@ function checkWin(whoJustWent, currentPlayerSquares){
 }
 
 function gameOver(whoJustWon, winningCombo){
-	var message = "Congrats to player " + whoJustWon + "!!!!<BR>You just won with a " + winningCombo;
+	var message = "Congrats to player " + whoJustWon + "!!!!<BR>You just won, smartie ;)";
 	document.getElementById('message').innerHTML = message;
+	document.getElementById('reset').style.visibility="visible";
 	gameOn = false;
 	for(var i = 0; i < winningCombo.length; i++){
 		document.getElementById(winningCombo[i]).className += ' winning-squares';
 	}
 	someoneWon = true;
+	reset();
 }
 
+function reset(){
+	whosTurn = 1;
+	player1Squares = [];
+	player2Squares = [];
+	someoneWon = false;
+	computerPlayer = false;
+	startPressed = false;
+}
 
 
 

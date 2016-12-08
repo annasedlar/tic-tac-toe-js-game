@@ -1,35 +1,102 @@
+body{
+	background-color: lavender;
+}
+
 #board{
 	max-width: 640px;
 	min-width: 320px;
+	height:  640px;
 	width: 75%;
 	margin: auto;
+	border: 1px solid #310736;
 }
 
 .square{
-	width:  30%;
+	width:  33.333%;
+	height: 212px;
 	background-color: lightsalmon;
 	color: #310736;
 	padding:  30px 0;
 	box-sizing: border-box;
 	float: left;
 	font-size: 80px;
-	border: 2px solid white; 
-
+	border: 2px solid lavender; 
+	border-radius: 50%;
 }
 
 h1{
-	font-size: 90px;
+	font-size: 70px;
 	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	text-align: center;
-	font-family: d;
+	font-family: "Frutiger Neue W02 Thin", Arial;
+	color: #310736;
+	max-width: 640px;
+	min-width: 320px;
+	width: 75%;
 	}
 
 #message{
 	font-size: 50px;
-	color: lightsalmon;
+	color: darksalmon;
+
 }
 
 .winning-squares{
 	background-color: turquoise !important;
 	color: darkcyan !important;
 }
+
+#row{position: relative;}
+
+#start-button{
+	position: absolute;
+	z-index: 1;
+}
+
+#start{
+	display: block;
+    background-color: turquoise;
+    border: darkcyan;
+    color: white;
+    height:  638px;
+    width: 638px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100px;
+    border-radius: 50%;
+    font-family: "Frutiger Neue W02 Thin", Arial;
+}
+
+#reset-button{
+	position: block;
+}
+
+#reset{
+	visibility: hidden;
+    background-color: turquoise;
+    border: darkcyan;
+    color: white;
+    margin: 20px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+    border-radius: 50%;
+    font-family: "Frutiger Neue W02 Thin", Arial;
+}
+
+
+
+
+
+
+
+
+
+
+
+
