@@ -7,7 +7,7 @@
 
 .square{
 	width:  30%;
-	background-color: white;
+	background-color: lightsalmon;
 	padding:  30px 0;
 	box-sizing: border-box;
 	float: left;
@@ -19,4 +19,16 @@
 h1{
 	font-size: 90px;
 	margin: auto;
+	text-align: center;
+	font-family: century-gothic;
 	}
+
+#message{
+	font-size: 50px;
+	color: lightsalmon;
+}
+
+.winning-squares{
+	background-color: cyan !important;
+	color: darkcyan !important;
+}

@@ -81,8 +81,11 @@ function checkWin(whoJustWent, currentPlayerSquares){
 }
 
 function gameOver(whoJustWon, winningCombo){
-	var message = "Congrats to player " + whoJustWon + ". You just won with a " + winningCombo;
+	var message = "Congrats to player " + whoJustWon + "!!!! You just won with a " + winningCombo;
 	document.getElementById('message').innerHTML = message;
+	for(var i = 0; i < winningCombo.length; i++){
+		document.getElementById(winningCombo[i]).className += ' winning-squares';
+	}
 }
 
 
