@@ -3,10 +3,11 @@
 // when user clicks, call function that puts a X in the box
 // MILESTONE
 
-var whosTurn =1; //initialize whosTurn to player 1
+var whosTurn = 1; //initialize whosTurn to player 1
 var player1Squares = [];
 var player2Squares = [];
-var gameOn = true;
+var someoneWon = false;
+var computerPlayer = false;
 // setup up winners array
 var winningCombos =[
 ['A1', 'B1', 'C1'],
@@ -18,39 +19,54 @@ var winningCombos =[
 ['A1', 'B2', 'C3'],
 ['A3', 'B2', 'C1']
 ];
+
 console.log(winningCombos);
 
+function onePlayerGame(){
+	computerPlayer = true;
+}
 
 function markSquare(currentSquare){
-	if(gameOn){
 		if((currentSquare.innerHTML == "X") || (currentSquare.innerHTML =="0")){
-			console.log("that square is already taken");
+			return "taken";
+		}else if(someoneWon){
+			console.log("Someone already won!");
 		}else{
 			if(whosTurn == 1){
 			currentSquare.innerHTML = "X";
 			whosTurn = 2;
 			player1Squares.push(currentSquare.id);
 			checkWin(1, player1Squares);
+			if(computerPlayer){
+				computerMove();
+			}
+
 			}else{
 				currentSquare.innerHTML = "0";
 				whosTurn = 1;
 				player2Squares.push(currentSquare.id);
 				checkWin(2, player2Squares);
 			}
-			console.log(player1Squares);
-			console.log(player2Squares);
-			// checkWin();
 		}
-	}
+}
+
+function computerMove(){
+	//gofind a random square
+	var needASquare = true;
+	var squareButtons = document.getELementsByClassName('square'); //will return an array
+	while(needASquare){
+		var randomNumber = (Math.ceil(Math.random() * 9)) + 1;
+		var randomSquare = squareButtons[randomNumber];
+		isTaken = markSquare(randomSquare);
+		console.log(isTaken);
+		if(isTaken !== "taken"){
+			needASquare = false;
+		}
+	}	
 }
 
 function checkWin(whoJustWent, currentPlayerSquares){
-	// if(whoJustWent === 1){
-	// 	playerArray = player1Squares;
-	// }else{ 
-	// 	playerArray = player2Squares;
-	// }
-	//Outer loop
+	//outer loop
 	for(var i=0; i < winningCombos.length; i++){
 		//Inner loop
 		var rowCount1 = 0;
@@ -81,14 +97,14 @@ function checkWin(whoJustWent, currentPlayerSquares){
 }
 
 function gameOver(whoJustWon, winningCombo){
-	var message = "Congrats to player " + whoJustWon + "!!!! You just won with a " + winningCombo;
+	var message = "Congrats to player " + whoJustWon + "!!!!<BR>You just won with a " + winningCombo;
 	document.getElementById('message').innerHTML = message;
+	gameOn = false;
 	for(var i = 0; i < winningCombo.length; i++){
 		document.getElementById(winningCombo[i]).className += ' winning-squares';
 	}
+	someoneWon = true;
 }
-
-
 
 
 

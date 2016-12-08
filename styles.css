@@ -8,11 +8,12 @@
 .square{
 	width:  30%;
 	background-color: lightsalmon;
+	color: #310736;
 	padding:  30px 0;
 	box-sizing: border-box;
 	float: left;
 	font-size: 80px;
-	border: 2px solid black; 
+	border: 2px solid white; 
 
 }
 
@@ -20,7 +21,7 @@ h1{
 	font-size: 90px;
 	margin: auto;
 	text-align: center;
-	font-family: century-gothic;
+	font-family: d;
 	}
 
 #message{
@@ -29,6 +30,6 @@ h1{
 }
 
 .winning-squares{
-	background-color: cyan !important;
+	background-color: turquoise !important;
 	color: darkcyan !important;
 }
