@@ -5,7 +5,7 @@ body{
 #board{
 	max-width: 640px;
 	min-width: 320px;
-	height:  640px;
+/* 	height:  640px; */
 	width: 75%;
 	margin: auto;
 	border: 1px solid #310736;
@@ -24,6 +24,10 @@ body{
 	border-radius: 50%;
 }
 
+.square:hover{
+	background-color: darksalmon;
+}
+
 h1{
 	font-size: 70px;
 	margin: auto;
@@ -40,12 +44,18 @@ h1{
 #message{
 	font-size: 50px;
 	color: darksalmon;
-
+	transition: all 3s ease-in;
 }
+
 
 .winning-squares{
 	background-color: turquoise !important;
 	color: darkcyan !important;
+}
+
+.losing-squares{
+	transition: all 3s ease-out;
+	visibility: hidden;
 }
 
 #row{position: relative;}
@@ -69,14 +79,16 @@ h1{
     font-size: 100px;
     border-radius: 50%;
     font-family: "Frutiger Neue W02 Thin", Arial;
+    transition: all 3s ease-in;
 }
 
 #reset-button{
-	position: block;
+	display: block;
 }
 
 #reset{
-	visibility: hidden;
+/* 	visibility: hidden; */
+	display: none;
     background-color: turquoise;
     border: darkcyan;
     color: white;
@@ -89,14 +101,21 @@ h1{
     font-family: "Frutiger Neue W02 Thin", Arial;
 }
 
+#scoreboard{
+	font-size: 50px;
+	margin: auto;
+	text-align: center;
+	font-family: "Frutiger Neue W02 Thin", Arial;
+	color: #310736;
+	max-width: 640px;
+	min-width: 320px;
+	width: 75%;
+	}
 
+.takenSquare:{
+	transform: rotate(360deg);
+	transition:  all 3s;
 
-
-
-
-
-
-
-
+}
 
 

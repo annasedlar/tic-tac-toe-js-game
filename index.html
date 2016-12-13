@@ -4,19 +4,18 @@
 	<title>Tic-Tac-Toe</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 text-center">
+			<div class="col-sm-9 text-center">
 				<h1>TIC TAC TOE</h1>
 			<div id="board">
 			<div id ="start-button">
-				<button id="start" onclick ="start()">START</button>
-			</div>
-			<div id = "message" class = "col-sm-12 text-center">
+				<button id="start">START</button>
 			</div>
 				<div class="row-1 board-row">
 					<button id="A1" class="square" onclick="markSquare(this)"></button>
@@ -33,11 +32,19 @@
 					<button id="B3" class="square" onclick="markSquare(this)"></button>
 					<button id="C3" class="square" onclick="markSquare(this)"></button>
 				</div>
-			<div id ="reset-button">
-				<button id="reset" onclick="reset()">Reset</button>
-			</div>
-			</div>
 		</div>
+	</div>
+	<div class="col-sm-3 text-center" id="sidediv">
+				<div id ="scoreboard">Score <BR> X: | O: 
+				</div>
+				<div id ="timer">Timer
+					
+				</div>
+				<div id ="reset-button">
+					<button id="reset" onclick="reset()">Reset</button>
+				</div>
+				<div id = "message" class = "col-sm-12 text-center">
+				</div>
 	</div>
 
 <script type="text/javascript" src="scripts.js"></script>

@@ -3,6 +3,15 @@
 // when user clicks, call function that puts a X in the box
 // MILESTONE
 
+$(document).ready(function(){
+
+	$('#start-button').click(function(){
+		$(this).fadeOut(1000);
+	})
+
+})
+
+
 var whosTurn = 1; //initialize whosTurn to player 1
 var player1Squares = [];
 var player2Squares = [];
@@ -23,15 +32,19 @@ var winningCombos =[
 
 console.log(winningCombos);
 
-function start(){
-	document.getElementById('start').style.display='none';
-}
+// function start(){
+// 	document.getElementById('start').style.display='none';
+
+// }
 
 function onePlayerGame(){
 	computerPlayer = true;
 }
 
 function markSquare(currentSquare){
+	$(currentSquare).click(function(){
+		$(this).addClass("takenSquare")
+	})
 	if(startPressed = true){
 		if((currentSquare.innerHTML == "X") || (currentSquare.innerHTML =="0")){
 			return "taken";
@@ -106,27 +119,29 @@ function checkWin(whoJustWent, currentPlayerSquares){
 function gameOver(whoJustWon, winningCombo){
 	var message = "Congrats to player " + whoJustWon + "!!!!<BR>You just won, smartie ;)";
 	document.getElementById('message').innerHTML = message;
-	document.getElementById('reset').style.visibility="visible";
+	document.getElementById('reset').style.display ="block";
+	var allSquares = $('.square');
+	console.log(allSquares);
 	gameOn = false;
+	for(var i = 0; i < winningCombo.length; i++){
+		document.getElementById(winningCombo[i]).className += ' losing-squares';
+	}
 	for(var i = 0; i < winningCombo.length; i++){
 		document.getElementById(winningCombo[i]).className += ' winning-squares';
 	}
 	someoneWon = true;
-	reset();
 }
 
 function reset(){
-	whosTurn = 1;
-	player1Squares = [];
-	player2Squares = [];
-	someoneWon = false;
-	computerPlayer = false;
-	startPressed = false;
+	location.reload();
 }
 
 
 
-
+ // style reset button
+ // get 'message' out of board
+ // score counter automated
+ // timer ("you won in just ___ seconds!")
 
 
 
